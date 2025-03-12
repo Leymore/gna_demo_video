@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Video Demo for Fast Video Generation with Sliding Tile Attention</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleButton = document.getElementById('toggleButton');
+      const tocContent = document.getElementById('tocContent');
+      const tocHeader = document.querySelector('.toc-header');
+
+      function toggleMenu() {
+        tocContent.classList.toggle('collapsed');
+        toggleButton.textContent = tocContent.classList.contains('collapsed') ? '▶' : '▼';
+      }
+
+      tocHeader.addEventListener('click', toggleMenu);
+    });
+
+  </script>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans&family=Noto+Sans&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="preload" href="./static/css/index.css" as="style">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script defer src="./static/js/bulma-carousel.min.js"></script>
+  <script defer src="./static/js/bulma-slider.min.js"></script>
+  <script defer src="./static/js/index.js"></script>
+
+
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <div class="columns is-centered">
+              <div class="column has-text-centered">
+                <br>
+
+                <h1 class="title is-1 publication-title">Video Demo for Fast Video Generation with Sliding Tile Attention</h1>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container " id="bidir">
+        <h2 id="obj-comparison" class="title is-3 has-text-centered">Comparison with Base Model</h2>
+        <div class="content has-text-justified" style="font-size: 1.5rem; line-height: 1.8;">
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <p><strong style="font-size: 24px;">Base Hunyuan (Full Attention)</strong></p>
+        </div>
+        <div class="column">
+          <p><strong style="font-size: 24px;">Ours (NA3D K29x41x41)</strong></p>
+        </div>
+      </div>
+      <!-- Row 1 -->
+
+<!--
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+        <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+            <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+            <source src="https://huggingface.co/datasets/FastVideo/STA_website/resolve/main/demo_50_pairs/hunyuan/video_244.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="https://huggingface.co/datasets/FastVideo/STA_website/resolve/main/demo_50_pairs/hunyuan_STA/video_244.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">Several giant wooly mammoths approach treading through a snowy meadow, their long wooly fur lightly blows in the wind as they walk, snow covered trees and dramatic snow capped mountains in the distance, mid afternoon light with wispy clouds and a sun high in the distance creates a warm glow, the low camera view is stunning capturing the large furry mammal with beautiful photography, depth of field.</p>
+
+    <br>
+ -->
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-11-23_41_53_seed0_a_black_dog_wearing_halloween_costume.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-00_18_45_seed0_a_black_dog_wearing_halloween_costume.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 0]a black dog wearing halloween costume</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-11-23_42_06_seed1_a_black_dog_wearing_halloween_costume.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-00_19_03_seed1_a_black_dog_wearing_halloween_costume.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 1]a black dog wearing halloween costume</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-11-23_42_30_seed2_a_black_dog_wearing_halloween_costume.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-00_18_29_seed2_a_black_dog_wearing_halloween_costume.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 2]a black dog wearing halloween costume</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-11-23_42_19_seed3_a_black_dog_wearing_halloween_costume.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-00_18_37_seed3_a_black_dog_wearing_halloween_costume.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 3]a black dog wearing halloween costume</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-00_34_48_seed4_a_black_dog_wearing_halloween_costume.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-01_10_50_seed4_a_black_dog_wearing_halloween_costume.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 4]a black dog wearing halloween costume</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-00_35_05_seed0_spider_making_a_web.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-01_11_49_seed0_spider_making_a_web.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 0]spider making a web</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-01_11_29_seed1_spider_making_a_web.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-01_47_55_seed1_spider_making_a_web.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 1]spider making a web</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-01_11_27_seed2_spider_making_a_web.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-01_48_22_seed2_spider_making_a_web.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 2]spider making a web</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-01_27_33_seed3_spider_making_a_web.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-02_04_26_seed3_spider_making_a_web.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 3]spider making a web</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-02_04_28_seed4_spider_making_a_web.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-02_40_33_seed4_spider_making_a_web.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 4]spider making a web</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-02_04_50_seed0_bat_eating_fruits_while_hanging.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-02_41_32_seed0_bat_eating_fruits_while_hanging.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 0]bat eating fruits while hanging</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-02_41_44_seed1_bat_eating_fruits_while_hanging.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-02_57_43_seed1_bat_eating_fruits_while_hanging.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 1]bat eating fruits while hanging</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-02_57_49_seed2_bat_eating_fruits_while_hanging.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-03_18_01_seed2_bat_eating_fruits_while_hanging.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 2]bat eating fruits while hanging</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-02_58_21_seed3_bat_eating_fruits_while_hanging.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-03_34_27_seed3_bat_eating_fruits_while_hanging.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 3]bat eating fruits while hanging</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-03_33_47_seed4_bat_eating_fruits_while_hanging.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-04_10_21_seed4_bat_eating_fruits_while_hanging.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 4]bat eating fruits while hanging</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-03_51_10_seed0_a_snake_crawling_on_a_wooden_flooring.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-04_11_16_seed0_a_snake_crawling_on_a_wooden_flooring.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 0]a snake crawling on a wooden flooring</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-03_51_16_seed1_a_snake_crawling_on_a_wooden_flooring.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-04_27_56_seed1_a_snake_crawling_on_a_wooden_flooring.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 1]a snake crawling on a wooden flooring</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-04_25_45_seed2_a_snake_crawling_on_a_wooden_flooring.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-04_47_34_seed2_a_snake_crawling_on_a_wooden_flooring.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 2]a snake crawling on a wooden flooring</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-04_43_48_seed3_a_snake_crawling_on_a_wooden_flooring.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-05_03_52_seed3_a_snake_crawling_on_a_wooden_flooring.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 3]a snake crawling on a wooden flooring</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-05_03_00_seed4_a_snake_crawling_on_a_wooden_flooring.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-05_20_30_seed4_a_snake_crawling_on_a_wooden_flooring.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 4]a snake crawling on a wooden flooring</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-05_17_22_seed0_a_close_up_video_of_a_dragonfly.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-05_40_43_seed0_a_close_up_video_of_a_dragonfly.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 0]a close up video of a dragonfly</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-05_36_13_seed1_a_close_up_video_of_a_dragonfly.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-05_56_33_seed1_a_close_up_video_of_a_dragonfly.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 1]a close up video of a dragonfly</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-05_55_40_seed2_a_close_up_video_of_a_dragonfly.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-06_16_50_seed2_a_close_up_video_of_a_dragonfly.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 2]a close up video of a dragonfly</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-06_09_07_seed3_a_close_up_video_of_a_dragonfly.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-06_32_24_seed3_a_close_up_video_of_a_dragonfly.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 3]a close up video of a dragonfly</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-06_28_31_seed4_a_close_up_video_of_a_dragonfly.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-06_50_18_seed4_a_close_up_video_of_a_dragonfly.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 4]a close up video of a dragonfly</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-06_48_19_seed0_macro_shot_of_ladybug_on_green_leaf_plant.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-07_10_01_seed0_macro_shot_of_ladybug_on_green_leaf_plant.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 0]macro shot of ladybug on green leaf plant</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-07_01_13_seed1_macro_shot_of_ladybug_on_green_leaf_plant.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-07_25_49_seed1_macro_shot_of_ladybug_on_green_leaf_plant.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 1]macro shot of ladybug on green leaf plant</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-07_21_56_seed2_macro_shot_of_ladybug_on_green_leaf_plant.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-07_46_26_seed2_macro_shot_of_ladybug_on_green_leaf_plant.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 2]macro shot of ladybug on green leaf plant</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-07_40_46_seed3_macro_shot_of_ladybug_on_green_leaf_plant.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-08_01_15_seed3_macro_shot_of_ladybug_on_green_leaf_plant.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 3]macro shot of ladybug on green leaf plant</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-07_52_53_seed4_macro_shot_of_ladybug_on_green_leaf_plant.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-08_19_56_seed4_macro_shot_of_ladybug_on_green_leaf_plant.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 4]macro shot of ladybug on green leaf plant</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-08_14_30_seed0_chameleon_eating_ant.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-08_38_54_seed0_chameleon_eating_ant.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 0]chameleon eating ant</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-08_32_49_seed1_chameleon_eating_ant.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-08_55_28_seed1_chameleon_eating_ant.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 1]chameleon eating ant</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-08_44_15_seed2_chameleon_eating_ant.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-09_15_58_seed2_chameleon_eating_ant.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 2]chameleon eating ant</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-09_06_45_seed3_chameleon_eating_ant.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-09_31_00_seed3_chameleon_eating_ant.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 3]chameleon eating ant</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-09_24_48_seed4_chameleon_eating_ant.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-09_50_12_seed4_chameleon_eating_ant.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 4]chameleon eating ant</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 100px; margin: 0 5%;">
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-12-09_36_12_seed0_a_bee_feeding_on_nectars.mp4" type="video/mp4">
+          </video>
+      </div>
+
+    <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+        <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+        <source src="static/videos/2025-03-12-10_08_45_seed0_a_bee_feeding_on_nectars.mp4" type="video/mp4">
+        </video>
+    </div>
+    </div>
+    <p class="prompt-text">[SEED 0]a bee feeding on nectars</p>
+
+    <br>
+    
+
+  <footer class="footer">
+    <div class="container" align="center">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var videos = document.querySelectorAll('#results-carousel video');
+
+      videos.forEach(function (video) {
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (!isMobile) {
+          // console.log('Autoplay enabled for non-mobile devices');
+          if (!video.classList.contains('single_image_video')) {
+            video.setAttribute('autoplay', 'autoplay');
+            // video.play().catch(function(error) {
+            //     console.error('Video playback failed:', error);
+            // });
+          }
+
+          // else case is implicit - no action needed for 'single_image_video'
+        } else {
+          console.log('Autoplay disabled for mobile devices');
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

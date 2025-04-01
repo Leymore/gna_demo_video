@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Video Demo for Fast Video Generation with Sliding Tile Attention</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleButton = document.getElementById('toggleButton');
+      const tocContent = document.getElementById('tocContent');
+      const tocHeader = document.querySelector('.toc-header');
+
+      function toggleMenu() {
+        tocContent.classList.toggle('collapsed');
+        toggleButton.textContent = tocContent.classList.contains('collapsed') ? '▶' : '▼';
+      }
+
+      tocHeader.addEventListener('click', toggleMenu);
+    });
+
+  </script>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans&family=Noto+Sans&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="preload" href="./static/css/index.css" as="style">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script defer src="./static/js/bulma-carousel.min.js"></script>
+  <script defer src="./static/js/bulma-slider.min.js"></script>
+  <script defer src="./static/js/index.js"></script>
+
+
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <div class="columns is-centered">
+              <div class="column has-text-centered">
+                <br>
+
+                <h1 class="title is-1 publication-title">Video Demo for Fast Video Generation with General Neighborhood Attention</h1>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container " id="bidir">
+        <h2 id="obj-comparison" class="title is-3 has-text-centered">Comparison with Base Model</h2>
+        <div class="content has-text-justified" style="font-size: 1.5rem; line-height: 1.8;">
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+
+      <div class="columns is-centered has-text-centered">
+        
+        <div class="column">
+          <p><strong style="font-size: 24px;">NA_s1x1x1</strong></p>
+        </div>
+        
+        <div class="column">
+          <p><strong style="font-size: 24px;">NA_s2x2x2</strong></p>
+        </div>
+        
+        <div class="column">
+          <p><strong style="font-size: 24px;">NA_s3x4x4</strong></p>
+        </div>
+        
+        <div class="column">
+          <p><strong style="font-size: 24px;">NA_s6x8x8</strong></p>
+        </div>
+        
+        <div class="column">
+          <p><strong style="font-size: 24px;">NA_s12x16x16</strong></p>
+        </div>
+        
+        <div class="column">
+          <p><strong style="font-size: 24px;">FA</strong></p>
+        </div>
+        
+      </div>
+
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_40_40_seed631262_A_woman_singing_softly_to_a_baby__her_lips_forming_gentle_words_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_50_03_seed631262_A_woman_singing_softly_to_a_baby__her_lips_forming_gentle_words_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_52_21_seed631262_A_woman_singing_softly_to_a_baby__her_lips_forming_gentle_words_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_52_30_seed631262_A_woman_singing_softly_to_a_baby__her_lips_forming_gentle_words_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_52_48_seed631262_A_woman_singing_softly_to_a_baby__her_lips_forming_gentle_words_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_40_37_seed631262_A_woman_singing_softly_to_a_baby__her_lips_forming_gentle_words_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A woman singing softly to a baby, her lips forming gentle words.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-18_46_20_seed670487_a_tortoise_whose_body_is_made_of_glass__with_cracks_that_have_been_repaired_using_kintsugi__is_walki.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-18_46_44_seed670487_a_tortoise_whose_body_is_made_of_glass__with_cracks_that_have_been_repaired_using_kintsugi__is_walki.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-18_46_10_seed670487_a_tortoise_whose_body_is_made_of_glass__with_cracks_that_have_been_repaired_using_kintsugi__is_walki.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_08_45_seed670487_a_tortoise_whose_body_is_made_of_glass__with_cracks_that_have_been_repaired_using_kintsugi__is_walki.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_08_48_seed670487_a_tortoise_whose_body_is_made_of_glass__with_cracks_that_have_been_repaired_using_kintsugi__is_walki.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_45_57_seed670487_a_tortoise_whose_body_is_made_of_glass__with_cracks_that_have_been_repaired_using_kintsugi__is_walki.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">a tortoise whose body is made of glass, with cracks that have been repaired using kintsugi, is walking on a black sand beach at sunset</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-04_44_09_seed243962_A_man_is_eating_spaghetti.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-04_44_36_seed243962_A_man_is_eating_spaghetti.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-04_50_33_seed243962_A_man_is_eating_spaghetti.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-04_50_39_seed243962_A_man_is_eating_spaghetti.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-04_50_28_seed243962_A_man_is_eating_spaghetti.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-18_42_20_seed243962_A_man_is_eating_spaghetti.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A man is eating spaghetti</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_06_13_seed935518_A_snowy_mountain_peak_with_a_lone_climber_reaching_the_summit_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_06_59_seed935518_A_snowy_mountain_peak_with_a_lone_climber_reaching_the_summit_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_11_07_seed935518_A_snowy_mountain_peak_with_a_lone_climber_reaching_the_summit_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_11_02_seed935518_A_snowy_mountain_peak_with_a_lone_climber_reaching_the_summit_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_12_32_seed935518_A_snowy_mountain_peak_with_a_lone_climber_reaching_the_summit_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_06_13_seed935518_A_snowy_mountain_peak_with_a_lone_climber_reaching_the_summit_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A snowy mountain peak with a lone climber reaching the summit.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_06_11_seed772246_Hidden_within_a_garden__an_ancient_fountain_trickles_with_water__surrounded_by_vibrant_flowers_and_l.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_06_30_seed772246_Hidden_within_a_garden__an_ancient_fountain_trickles_with_water__surrounded_by_vibrant_flowers_and_l.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_06_16_seed772246_Hidden_within_a_garden__an_ancient_fountain_trickles_with_water__surrounded_by_vibrant_flowers_and_l.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_09_01_seed772246_Hidden_within_a_garden__an_ancient_fountain_trickles_with_water__surrounded_by_vibrant_flowers_and_l.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_11_54_seed772246_Hidden_within_a_garden__an_ancient_fountain_trickles_with_water__surrounded_by_vibrant_flowers_and_l.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_06_00_seed772246_Hidden_within_a_garden__an_ancient_fountain_trickles_with_water__surrounded_by_vibrant_flowers_and_l.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">Hidden within a garden, an ancient fountain trickles with water, surrounded by vibrant flowers and lush greenery that seem to whisper secrets of the past.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_53_43_seed26225_The_person_s_nose_scrunched_up_in_distaste_as_he_tasted_something_sour_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_55_02_seed26225_The_person_s_nose_scrunched_up_in_distaste_as_he_tasted_something_sour_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_54_58_seed26225_The_person_s_nose_scrunched_up_in_distaste_as_he_tasted_something_sour_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_58_30_seed26225_The_person_s_nose_scrunched_up_in_distaste_as_he_tasted_something_sour_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_58_32_seed26225_The_person_s_nose_scrunched_up_in_distaste_as_he_tasted_something_sour_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-22_53_37_seed26225_The_person_s_nose_scrunched_up_in_distaste_as_he_tasted_something_sour_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">The person's nose scrunched up in distaste as he tasted something sour.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-01_41_10_seed98246_A_mysterious_ancient_temple_hidden_in_the_jungle_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-01_44_02_seed98246_A_mysterious_ancient_temple_hidden_in_the_jungle_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-01_48_32_seed98246_A_mysterious_ancient_temple_hidden_in_the_jungle_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-01_49_20_seed98246_A_mysterious_ancient_temple_hidden_in_the_jungle_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-01_49_28_seed98246_A_mysterious_ancient_temple_hidden_in_the_jungle_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_40_40_seed98246_A_mysterious_ancient_temple_hidden_in_the_jungle_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A mysterious ancient temple hidden in the jungle.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-22_15_03_seed27824_Zooming_through_a_dark_forest_with_neon_light_flora_lighting_up_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-22_16_10_seed27824_Zooming_through_a_dark_forest_with_neon_light_flora_lighting_up_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-22_15_43_seed27824_Zooming_through_a_dark_forest_with_neon_light_flora_lighting_up_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-22_16_58_seed27824_Zooming_through_a_dark_forest_with_neon_light_flora_lighting_up_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-22_17_24_seed27824_Zooming_through_a_dark_forest_with_neon_light_flora_lighting_up_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_15_17_seed27824_Zooming_through_a_dark_forest_with_neon_light_flora_lighting_up_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">Zooming through a dark forest with neon light flora lighting up.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-05_07_38_seed91161_Animated_scene_features_a_close-up_of_a_short_fluffy_monster_kneeling_beside_a_melting_red_candle__T.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-05_09_20_seed91161_Animated_scene_features_a_close-up_of_a_short_fluffy_monster_kneeling_beside_a_melting_red_candle__T.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-05_10_56_seed91161_Animated_scene_features_a_close-up_of_a_short_fluffy_monster_kneeling_beside_a_melting_red_candle__T.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-05_11_38_seed91161_Animated_scene_features_a_close-up_of_a_short_fluffy_monster_kneeling_beside_a_melting_red_candle__T.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-05_13_20_seed91161_Animated_scene_features_a_close-up_of_a_short_fluffy_monster_kneeling_beside_a_melting_red_candle__T.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_14_04_seed91161_Animated_scene_features_a_close-up_of_a_short_fluffy_monster_kneeling_beside_a_melting_red_candle__T.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">Animated scene features a close-up of a short fluffy monster kneeling beside a melting red candle. The art style is 3D and realistic, with a focus on lighting and texture. The mood of the painting is one of wonder and curiosity, as the monster gazes at the flame with wide eyes and open mouth. Its pose and expression convey a sense of innocence and playfulness, as if it is exploring the world around it for the first time. The use of warm colors and dramatic lighting further enhances the cozy atmosphere of the image.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_05_33_seed709570_A_porcupine_wearing_a_tutu__performing_a_ballet_dance_on_a_stage_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_05_58_seed709570_A_porcupine_wearing_a_tutu__performing_a_ballet_dance_on_a_stage_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_09_11_seed709570_A_porcupine_wearing_a_tutu__performing_a_ballet_dance_on_a_stage_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_10_54_seed709570_A_porcupine_wearing_a_tutu__performing_a_ballet_dance_on_a_stage_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_11_41_seed709570_A_porcupine_wearing_a_tutu__performing_a_ballet_dance_on_a_stage_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_05_01_seed709570_A_porcupine_wearing_a_tutu__performing_a_ballet_dance_on_a_stage_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A porcupine wearing a tutu, performing a ballet dance on a stage.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_07_17_seed442417_A_tranquil_Zen_garden_with_a_gently_flowing_stream_and_koi_fish_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_15_32_seed442417_A_tranquil_Zen_garden_with_a_gently_flowing_stream_and_koi_fish_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_15_28_seed442417_A_tranquil_Zen_garden_with_a_gently_flowing_stream_and_koi_fish_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_15_29_seed442417_A_tranquil_Zen_garden_with_a_gently_flowing_stream_and_koi_fish_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_22_07_seed442417_A_tranquil_Zen_garden_with_a_gently_flowing_stream_and_koi_fish_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-22_06_52_seed442417_A_tranquil_Zen_garden_with_a_gently_flowing_stream_and_koi_fish_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A tranquil Zen garden with a gently flowing stream and koi fish.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_53_09_seed288389_A_tilt-down_from_the_ceiling_of_a_cathedral__revealing_the_intricate_mosaics_and_the_altar_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_56_14_seed288389_A_tilt-down_from_the_ceiling_of_a_cathedral__revealing_the_intricate_mosaics_and_the_altar_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_58_31_seed288389_A_tilt-down_from_the_ceiling_of_a_cathedral__revealing_the_intricate_mosaics_and_the_altar_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_58_22_seed288389_A_tilt-down_from_the_ceiling_of_a_cathedral__revealing_the_intricate_mosaics_and_the_altar_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-01_00_44_seed288389_A_tilt-down_from_the_ceiling_of_a_cathedral__revealing_the_intricate_mosaics_and_the_altar_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-01_52_48_seed288389_A_tilt-down_from_the_ceiling_of_a_cathedral__revealing_the_intricate_mosaics_and_the_altar_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A tilt-down from the ceiling of a cathedral, revealing the intricate mosaics and the altar.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_27_40_seed116739_A_couple_runs_through_a_sudden_downpour__laughing_and_splashing_in_puddles_as_they_try_to_find_shelt.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_29_07_seed116739_A_couple_runs_through_a_sudden_downpour__laughing_and_splashing_in_puddles_as_they_try_to_find_shelt.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_28_56_seed116739_A_couple_runs_through_a_sudden_downpour__laughing_and_splashing_in_puddles_as_they_try_to_find_shelt.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_28_59_seed116739_A_couple_runs_through_a_sudden_downpour__laughing_and_splashing_in_puddles_as_they_try_to_find_shelt.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_29_14_seed116739_A_couple_runs_through_a_sudden_downpour__laughing_and_splashing_in_puddles_as_they_try_to_find_shelt.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_27_12_seed116739_A_couple_runs_through_a_sudden_downpour__laughing_and_splashing_in_puddles_as_they_try_to_find_shelt.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A couple runs through a sudden downpour, laughing and splashing in puddles as they try to find shelter.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-22_41_12_seed33326_a_woman_wearing_a_green_dress_and_a_sun_hat_taking_a_pleasant_stroll_in_Antarctica_during_a_winter_s.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-22_41_54_seed33326_a_woman_wearing_a_green_dress_and_a_sun_hat_taking_a_pleasant_stroll_in_Antarctica_during_a_winter_s.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-22_47_35_seed33326_a_woman_wearing_a_green_dress_and_a_sun_hat_taking_a_pleasant_stroll_in_Antarctica_during_a_winter_s.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-22_47_27_seed33326_a_woman_wearing_a_green_dress_and_a_sun_hat_taking_a_pleasant_stroll_in_Antarctica_during_a_winter_s.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-22_47_37_seed33326_a_woman_wearing_a_green_dress_and_a_sun_hat_taking_a_pleasant_stroll_in_Antarctica_during_a_winter_s.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_41_08_seed33326_a_woman_wearing_a_green_dress_and_a_sun_hat_taking_a_pleasant_stroll_in_Antarctica_during_a_winter_s.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">a woman wearing a green dress and a sun hat taking a pleasant stroll in Antarctica during a winter storm</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-01_13_49_seed208496_Carefully_pouring_the_milk_into_the_cup__the_milk_flowed_smoothly_and_the_cup_was_gradually_filled_w.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-01_17_43_seed208496_Carefully_pouring_the_milk_into_the_cup__the_milk_flowed_smoothly_and_the_cup_was_gradually_filled_w.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-01_17_42_seed208496_Carefully_pouring_the_milk_into_the_cup__the_milk_flowed_smoothly_and_the_cup_was_gradually_filled_w.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-01_19_13_seed208496_Carefully_pouring_the_milk_into_the_cup__the_milk_flowed_smoothly_and_the_cup_was_gradually_filled_w.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-01_21_52_seed208496_Carefully_pouring_the_milk_into_the_cup__the_milk_flowed_smoothly_and_the_cup_was_gradually_filled_w.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_13_54_seed208496_Carefully_pouring_the_milk_into_the_cup__the_milk_flowed_smoothly_and_the_cup_was_gradually_filled_w.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">Carefully pouring the milk into the cup, the milk flowed smoothly and the cup was gradually filled with a milky white color</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_41_40_seed588508_A_litter_of_golden_retriever_puppies_playing_in_the_snow__Their_heads_pop_out_of_the_snow__covered_i.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_47_36_seed588508_A_litter_of_golden_retriever_puppies_playing_in_the_snow__Their_heads_pop_out_of_the_snow__covered_i.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_53_53_seed588508_A_litter_of_golden_retriever_puppies_playing_in_the_snow__Their_heads_pop_out_of_the_snow__covered_i.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_53_46_seed588508_A_litter_of_golden_retriever_puppies_playing_in_the_snow__Their_heads_pop_out_of_the_snow__covered_i.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_54_13_seed588508_A_litter_of_golden_retriever_puppies_playing_in_the_snow__Their_heads_pop_out_of_the_snow__covered_i.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_41_24_seed588508_A_litter_of_golden_retriever_puppies_playing_in_the_snow__Their_heads_pop_out_of_the_snow__covered_i.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A litter of golden retriever puppies playing in the snow. Their heads pop out of the snow, covered in.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_43_48_seed750800_The_person_s_cheeks_flushed_with_pleasure_as_she_savored_a_delicious_meal_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_46_12_seed750800_The_person_s_cheeks_flushed_with_pleasure_as_she_savored_a_delicious_meal_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_54_34_seed750800_The_person_s_cheeks_flushed_with_pleasure_as_she_savored_a_delicious_meal_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_55_28_seed750800_The_person_s_cheeks_flushed_with_pleasure_as_she_savored_a_delicious_meal_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_55_21_seed750800_The_person_s_cheeks_flushed_with_pleasure_as_she_savored_a_delicious_meal_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_43_31_seed750800_The_person_s_cheeks_flushed_with_pleasure_as_she_savored_a_delicious_meal_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">The person's cheeks flushed with pleasure as she savored a delicious meal.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_31_54_seed107473_A_thin_sheet_of_ice_on_a_lake_cracking_and_breaking_as_the_sun_warms_it__creating_a_mosaic_of_shifti.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_33_08_seed107473_A_thin_sheet_of_ice_on_a_lake_cracking_and_breaking_as_the_sun_warms_it__creating_a_mosaic_of_shifti.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_37_45_seed107473_A_thin_sheet_of_ice_on_a_lake_cracking_and_breaking_as_the_sun_warms_it__creating_a_mosaic_of_shifti.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_46_09_seed107473_A_thin_sheet_of_ice_on_a_lake_cracking_and_breaking_as_the_sun_warms_it__creating_a_mosaic_of_shifti.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-21_46_42_seed107473_A_thin_sheet_of_ice_on_a_lake_cracking_and_breaking_as_the_sun_warms_it__creating_a_mosaic_of_shifti.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-22_31_27_seed107473_A_thin_sheet_of_ice_on_a_lake_cracking_and_breaking_as_the_sun_warms_it__creating_a_mosaic_of_shifti.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A thin sheet of ice on a lake cracking and breaking as the sun warms it, creating a mosaic of shifting patterns.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_09_24_seed529903_Panda_playing_the_guitar.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_09_32_seed529903_Panda_playing_the_guitar.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_09_13_seed529903_Panda_playing_the_guitar.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_13_59_seed529903_Panda_playing_the_guitar.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_30_56_seed529903_Panda_playing_the_guitar.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_08_56_seed529903_Panda_playing_the_guitar.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">Panda playing the guitar</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_35_09_seed776646_Close-up_of_a_majestic_white_dragon_with_pearlescent__silver-edged_scales__icy_blue_eyes__elegant_iv.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_37_12_seed776646_Close-up_of_a_majestic_white_dragon_with_pearlescent__silver-edged_scales__icy_blue_eyes__elegant_iv.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_40_09_seed776646_Close-up_of_a_majestic_white_dragon_with_pearlescent__silver-edged_scales__icy_blue_eyes__elegant_iv.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_42_48_seed776646_Close-up_of_a_majestic_white_dragon_with_pearlescent__silver-edged_scales__icy_blue_eyes__elegant_iv.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_44_40_seed776646_Close-up_of_a_majestic_white_dragon_with_pearlescent__silver-edged_scales__icy_blue_eyes__elegant_iv.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-01_34_49_seed776646_Close-up_of_a_majestic_white_dragon_with_pearlescent__silver-edged_scales__icy_blue_eyes__elegant_iv.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">Close-up of a majestic white dragon with pearlescent, silver-edged scales, icy blue eyes, elegant ivory horns, and misty breath. Focus on detailed facial features and textured scales, set against a softly blurred background</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_12_20_seed229258_A_push-in_towards_a_lone_figure_standing_at_the_edge_of_a_cliff__overlooking_a_vast__fog-covered_val.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_14_31_seed229258_A_push-in_towards_a_lone_figure_standing_at_the_edge_of_a_cliff__overlooking_a_vast__fog-covered_val.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_18_22_seed229258_A_push-in_towards_a_lone_figure_standing_at_the_edge_of_a_cliff__overlooking_a_vast__fog-covered_val.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_20_49_seed229258_A_push-in_towards_a_lone_figure_standing_at_the_edge_of_a_cliff__overlooking_a_vast__fog-covered_val.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_20_40_seed229258_A_push-in_towards_a_lone_figure_standing_at_the_edge_of_a_cliff__overlooking_a_vast__fog-covered_val.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-04_12_04_seed229258_A_push-in_towards_a_lone_figure_standing_at_the_edge_of_a_cliff__overlooking_a_vast__fog-covered_val.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A push-in towards a lone figure standing at the edge of a cliff, overlooking a vast, fog-covered valley.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_33_52_seed619176_A_bride_and_groom_sharing_a_tender_first_dance_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_41_16_seed619176_A_bride_and_groom_sharing_a_tender_first_dance_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_40_59_seed619176_A_bride_and_groom_sharing_a_tender_first_dance_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_45_37_seed619176_A_bride_and_groom_sharing_a_tender_first_dance_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_55_31_seed619176_A_bride_and_groom_sharing_a_tender_first_dance_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-20_33_55_seed619176_A_bride_and_groom_sharing_a_tender_first_dance_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A bride and groom sharing a tender first dance.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_55_49_seed234053_A_tree_made_of_golden_coins_at_sunset__with_coins_falling_off_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_57_23_seed234053_A_tree_made_of_golden_coins_at_sunset__with_coins_falling_off_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_58_22_seed234053_A_tree_made_of_golden_coins_at_sunset__with_coins_falling_off_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_58_52_seed234053_A_tree_made_of_golden_coins_at_sunset__with_coins_falling_off_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-04_02_50_seed234053_A_tree_made_of_golden_coins_at_sunset__with_coins_falling_off_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-04_55_24_seed234053_A_tree_made_of_golden_coins_at_sunset__with_coins_falling_off_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A tree made of golden coins at sunset, with coins falling off.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_12_46_seed31244_People_gather_on_a_peaceful_beach_at_sunset__a_bonfire_crackling_as_they_sit_around__enjoying_the_wa.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_13_50_seed31244_People_gather_on_a_peaceful_beach_at_sunset__a_bonfire_crackling_as_they_sit_around__enjoying_the_wa.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_15_25_seed31244_People_gather_on_a_peaceful_beach_at_sunset__a_bonfire_crackling_as_they_sit_around__enjoying_the_wa.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_18_13_seed31244_People_gather_on_a_peaceful_beach_at_sunset__a_bonfire_crackling_as_they_sit_around__enjoying_the_wa.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_21_05_seed31244_People_gather_on_a_peaceful_beach_at_sunset__a_bonfire_crackling_as_they_sit_around__enjoying_the_wa.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-01_12_04_seed31244_People_gather_on_a_peaceful_beach_at_sunset__a_bonfire_crackling_as_they_sit_around__enjoying_the_wa.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">People gather on a peaceful beach at sunset, a bonfire crackling as they sit around, enjoying the warmth and the sight of the sun dipping below the horizon.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_36_24_seed571858_A_cozy_log_cabin_in_the_woods_with_smoke_rising_from_the_chimney_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_38_19_seed571858_A_cozy_log_cabin_in_the_woods_with_smoke_rising_from_the_chimney_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_43_34_seed571858_A_cozy_log_cabin_in_the_woods_with_smoke_rising_from_the_chimney_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_43_30_seed571858_A_cozy_log_cabin_in_the_woods_with_smoke_rising_from_the_chimney_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_44_57_seed571858_A_cozy_log_cabin_in_the_woods_with_smoke_rising_from_the_chimney_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-04_35_46_seed571858_A_cozy_log_cabin_in_the_woods_with_smoke_rising_from_the_chimney_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A cozy log cabin in the woods with smoke rising from the chimney.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_21_13_seed777572_A_video_showing_the_complex_patterns_of_steam_rising_from_a_hot_cup_of_coffee_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_25_35_seed777572_A_video_showing_the_complex_patterns_of_steam_rising_from_a_hot_cup_of_coffee_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_30_01_seed777572_A_video_showing_the_complex_patterns_of_steam_rising_from_a_hot_cup_of_coffee_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_30_00_seed777572_A_video_showing_the_complex_patterns_of_steam_rising_from_a_hot_cup_of_coffee_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-23_34_28_seed777572_A_video_showing_the_complex_patterns_of_steam_rising_from_a_hot_cup_of_coffee_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-00_20_59_seed777572_A_video_showing_the_complex_patterns_of_steam_rising_from_a_hot_cup_of_coffee_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A video showing the complex patterns of steam rising from a hot cup of coffee.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-05_23_49_seed146316_A_toddler_laughing_with_a_mouthful_of_mashed_potatoes_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-18_46_43_seed146316_A_toddler_laughing_with_a_mouthful_of_mashed_potatoes_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-18_46_28_seed146316_A_toddler_laughing_with_a_mouthful_of_mashed_potatoes_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-18_46_15_seed146316_A_toddler_laughing_with_a_mouthful_of_mashed_potatoes_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-18_46_18_seed146316_A_toddler_laughing_with_a_mouthful_of_mashed_potatoes_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-03-31-19_15_08_seed146316_A_toddler_laughing_with_a_mouthful_of_mashed_potatoes_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A toddler laughing with a mouthful of mashed potatoes.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_24_07_seed256787_A_paper_origami_dragon_riding_a_boat_in_waves__Realistic_style_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_24_51_seed256787_A_paper_origami_dragon_riding_a_boat_in_waves__Realistic_style_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_31_14_seed256787_A_paper_origami_dragon_riding_a_boat_in_waves__Realistic_style_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_31_29_seed256787_A_paper_origami_dragon_riding_a_boat_in_waves__Realistic_style_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-02_33_39_seed256787_A_paper_origami_dragon_riding_a_boat_in_waves__Realistic_style_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-03_24_12_seed256787_A_paper_origami_dragon_riding_a_boat_in_waves__Realistic_style_.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A paper origami dragon riding a boat in waves. Realistic style.</p>
+
+    <br>
+    
+
+  <footer class="footer">
+    <div class="container" align="center">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var videos = document.querySelectorAll('#results-carousel video');
+
+      videos.forEach(function (video) {
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (!isMobile) {
+          // console.log('Autoplay enabled for non-mobile devices');
+          if (!video.classList.contains('single_image_video')) {
+            video.setAttribute('autoplay', 'autoplay');
+            // video.play().catch(function(error) {
+            //     console.error('Video playback failed:', error);
+            // });
+          }
+
+          // else case is implicit - no action needed for 'single_image_video'
+        } else {
+          console.log('Autoplay disabled for mobile devices');
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

@@ -5,17 +5,6 @@ from jinja2 import Template
 import shutil
 settings = [
     dict(
-        name="na_k24x32x32",
-        root_group=[
-            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s1x1x1", "NA_s1x1x1"),
-            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s2x2x2", "NA_s2x2x2"),
-            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s3x4x4", "NA_s3x4x4"),
-            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s6x8x8", "NA_s6x8x8"),
-            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s12x16x16", "NA_s12x16x16"),
-            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/sa", "FA"),
-        ],
-    ),
-    dict(
         name="na_k18x24x24",
         root_group=[
             ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k18x24x24_s1x1x1", "NA_s1x1x1"),
@@ -27,6 +16,17 @@ settings = [
         ],
     ),
     dict(
+        name="na_k24x32x32",
+        root_group=[
+            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s1x1x1", "NA_s1x1x1"),
+            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s2x2x2", "NA_s2x2x2"),
+            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s3x4x4", "NA_s3x4x4"),
+            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s6x8x8", "NA_s6x8x8"),
+            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s12x16x16", "NA_s12x16x16"),
+            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/sa", "FA"),
+        ],
+    ),
+    dict(
         name="na_k30x40x40",
         root_group=[
             ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k30x40x40_s1x1x1", "NA_s1x1x1"),
@@ -34,6 +34,17 @@ settings = [
             ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k30x40x40_s3x4x4", "NA_s3x4x4"),
             ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k30x40x40_s6x8x8", "NA_s6x8x8"),
             ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k30x40x40_s10x20x20", "NA_s10x20x20"),
+            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/sa", "FA"),
+        ],
+    ),
+    dict(
+        name="na_k24x32x32_additional",
+        root_group=[
+            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s1x16x16", "NA_s1x16x16"),
+            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s2x8x8", "NA_s2x8x8"),
+            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s4x8x8", "NA_s4x8x8"),
+            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s8x8x8", "NA_s8x8x8"),
+            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s16x4x4", "NA_s6x4x4"),
             ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/sa", "FA"),
         ],
     ),
@@ -82,8 +93,8 @@ def make_demo_path(video_path):
     demo_path = os.path.join('static', 'videos', video_basename)
     return demo_path
 
-def prepare_render_dict(roots, video_groups, demo_root):
-    video_titles = [r[1] for r in roots]
+def prepare_render_dict(args, video_groups, demo_root):
+    video_titles = [r[1] for r in args["root_group"]]
     prompts, video_urls = [], []
     os.makedirs(demo_root, exist_ok=True)
     os.makedirs(os.path.join(demo_root, "static", "videos"), exist_ok=True)
@@ -96,7 +107,8 @@ def prepare_render_dict(roots, video_groups, demo_root):
                 shutil.copy(video_path, os.path.join(demo_root, demo_path))
             videos.append(demo_path)
         video_urls.append(videos)
-    return dict(video_titles=video_titles, prompts=prompts, video_urls=video_urls)
+    html_subtitle = args["name"].replace("_", " ").upper()
+    return dict(video_titles=video_titles, prompts=prompts, video_urls=video_urls, html_subtitle=html_subtitle)
 
 
 def render_html(pack, output_html_path):
@@ -124,9 +136,9 @@ def make_html(settings):
     page_urls = []
     for args in settings:
         video_groups = get_video_groups(args["root_group"])
-        pack = prepare_render_dict(args["root_group"], video_groups, os.path.dirname(__file__))
-        render_html(pack, os.path.join(os.path.dirname(__file__), "pages", args['name'] + ".html"))
-        page_urls.append(os.path.join("pages", args['name'] + ".html"))
+        pack = prepare_render_dict(args, video_groups, os.path.dirname(__file__))
+        render_html(pack, os.path.join(os.path.dirname(__file__), args['name'] + ".html"))
+        page_urls.append(args['name'] + ".html")
     render_index(page_urls, os.path.join(os.path.dirname(__file__), "index.html"))
 
 make_html(settings)

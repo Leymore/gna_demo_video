@@ -109,6 +109,11 @@ def prepare_render_dict(args, video_groups, demo_root):
             videos.append(demo_path)
         video_urls.append(videos)
     html_subtitle = args["name"].replace("_", " ").upper()
+
+    indices = [i for i in range(len(prompts))]
+    indices.sort(key=lambda i: prompts[i])
+    prompts = [prompts[i] for i in indices]
+    video_urls = [video_urls[i] for i in indices]
     return dict(video_titles=video_titles, prompts=prompts, video_urls=video_urls, html_subtitle=html_subtitle)
 
 

@@ -41,10 +41,11 @@ settings = [
         name="na_k24x32x32_additional",
         root_group=[
             ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s1x16x16", "NA_s1x16x16"),
+            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s2x16x16", "NA_s2x16x16"),
             ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s2x8x8", "NA_s2x8x8"),
             ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s4x8x8", "NA_s4x8x8"),
             ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s8x8x8", "NA_s8x8x8"),
-            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s16x4x4", "NA_s6x4x4"),
+            ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/na_k24x32x32_s16x4x4", "NA_s16x4x4"),
             ("/data/data0/fzhou87/repos/gna/HunyuanVideo/results/demo/sa", "FA"),
         ],
     ),

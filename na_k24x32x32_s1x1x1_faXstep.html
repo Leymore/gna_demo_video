@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Video Demo for Fast Video Generation with Sliding Tile Attention</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleButton = document.getElementById('toggleButton');
+      const tocContent = document.getElementById('tocContent');
+      const tocHeader = document.querySelector('.toc-header');
+
+      function toggleMenu() {
+        tocContent.classList.toggle('collapsed');
+        toggleButton.textContent = tocContent.classList.contains('collapsed') ? '▶' : '▼';
+      }
+
+      tocHeader.addEventListener('click', toggleMenu);
+    });
+
+  </script>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans&family=Noto+Sans&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="preload" href="./static/css/index.css" as="style">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script defer src="./static/js/bulma-carousel.min.js"></script>
+  <script defer src="./static/js/bulma-slider.min.js"></script>
+  <script defer src="./static/js/index.js"></script>
+
+
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <div class="columns is-centered">
+              <div class="column has-text-centered">
+                <br>
+
+                <h1 class="title is-1 publication-title">Video Demo for Fast Video Generation with General Neighborhood Attention</h1>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="container " id="bidir">
+        <h2 id="obj-comparison" class="title is-3 has-text-centered">NA K24X32X32 S1X1X1 FAXSTEP</h2>
+        <div class="content has-text-justified" style="font-size: 1.5rem; line-height: 1.8;">
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+
+      <div class="columns is-centered has-text-centered">
+        
+        <div class="column">
+          <p><strong style="font-size: 24px;">fa5step</strong></p>
+        </div>
+        
+        <div class="column">
+          <p><strong style="font-size: 24px;">fa10step</strong></p>
+        </div>
+        
+        <div class="column">
+          <p><strong style="font-size: 24px;">fa15step</strong></p>
+        </div>
+        
+        <div class="column">
+          <p><strong style="font-size: 24px;">fa20step</strong></p>
+        </div>
+        
+        <div class="column">
+          <p><strong style="font-size: 24px;">FA</strong></p>
+        </div>
+        
+      </div>
+
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-18_23_35_seed116739__A_princess_is_brushing_her_long_golden_hair_in_the_garden__.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-18_21_50_seed116739__A_princess_is_brushing_her_long_golden_hair_in_the_garden__.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-18_21_32_seed116739__A_princess_is_brushing_her_long_golden_hair_in_the_garden__.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-18_21_35_seed116739__A_princess_is_brushing_her_long_golden_hair_in_the_garden__.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-19_15_20_seed116739__A_princess_is_brushing_her_long_golden_hair_in_the_garden__.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A princess is brushing her long golden hair in the garden.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-19_26_44_seed26225__A_young_boy_is_playing_a_harmonica_at_sunset__with_his_dog_sitting_quietly_beside_him__listening__.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-19_27_10_seed26225__A_young_boy_is_playing_a_harmonica_at_sunset__with_his_dog_sitting_quietly_beside_him__listening__.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-19_27_37_seed26225__A_young_boy_is_playing_a_harmonica_at_sunset__with_his_dog_sitting_quietly_beside_him__listening__.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-20_15_36_seed26225__A_young_boy_is_playing_a_harmonica_at_sunset__with_his_dog_sitting_quietly_beside_him__listening__.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-20_20_56_seed26225__A_young_boy_is_playing_a_harmonica_at_sunset__with_his_dog_sitting_quietly_beside_him__listening__.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">A young boy is playing a harmonica at sunset, with his dog sitting quietly beside him, listening.</p>
+
+    <br>
+    
+    <div id="results-carousel" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2px; margin: 0 5%;">
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-17_20_32_seed670487__Several_giant_wooly_mammoths_approach_treading_through_a_snowy_meadow__their_long_wooly_fur_lightly.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-17_19_17_seed670487__Several_giant_wooly_mammoths_approach_treading_through_a_snowy_meadow__their_long_wooly_fur_lightly.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-17_17_43_seed670487__Several_giant_wooly_mammoths_approach_treading_through_a_snowy_meadow__their_long_wooly_fur_lightly.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-17_16_40_seed670487__Several_giant_wooly_mammoths_approach_treading_through_a_snowy_meadow__their_long_wooly_fur_lightly.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+      <div class="item" style="flex: 1; display: flex; flex-direction: column; gap: 20px;">
+          <video id="cereal" controls preload="metadata" autoplay muted loop playsinline>
+          <source src="static/videos/2025-04-01-18_10_43_seed670487__Several_giant_wooly_mammoths_approach_treading_through_a_snowy_meadow__their_long_wooly_fur_lightly.mp4" type="video/mp4">
+          </video>
+      </div>
+      
+    </div>
+
+    <p class="prompt-text">Several giant wooly mammoths approach treading through a snowy meadow, their long wooly fur lightly</p>
+
+    <br>
+    
+
+  <footer class="footer">
+    <div class="container" align="center">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var videos = document.querySelectorAll('#results-carousel video');
+
+      videos.forEach(function (video) {
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        if (!isMobile) {
+          // console.log('Autoplay enabled for non-mobile devices');
+          if (!video.classList.contains('single_image_video')) {
+            video.setAttribute('autoplay', 'autoplay');
+            // video.play().catch(function(error) {
+            //     console.error('Video playback failed:', error);
+            // });
+          }
+
+          // else case is implicit - no action needed for 'single_image_video'
+        } else {
+          console.log('Autoplay disabled for mobile devices');
+        }
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>
